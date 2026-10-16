@@ -14,22 +14,22 @@
   }
 
   body {
-    word-break: keep-all;
+    word-break: break-all;
     overflow-wrap: break-word;
   }
 }
 
-/* Korean high-legibility justified text */
+/* Korean high-legibility justified text (character-level wrap for consistent letter-spacing) */
 .text-justified {
   text-align: justify;
   text-justify: inter-word;
-  word-break: keep-all;
+  word-break: break-all;
   overflow-wrap: break-word;
 }
 
 /* Category backgrounds - soft, eye-friendly, calm natural paper tones (non-stimulating) */
 .bg-category-overview {
-  background-color: #FBF9F5;
+  background-color: #183526;
 }
 
 .bg-category-producer {
@@ -41,7 +41,7 @@
 }
 
 .bg-category-notice {
-  background-color: #ECEEF2;
+  background-color: #142238;
 }
 
 /* High contrast gentle dark text */

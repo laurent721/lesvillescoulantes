@@ -20,6 +20,21 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
   const firstGroupLabel = schedule.firstGroupLabel || '서울 부산';
   const secondGroupLabel = schedule.secondGroupLabel || '부산';
 
+  // Helper to underline 30일* and 13일*
+  const renderFormattedLabel = (label: string) => {
+    const parts = label.split(/(30일\*|13일\*)/g);
+    return parts.map((part, idx) => {
+      if (part === '30일*' || part === '13일*') {
+        return (
+          <span key={idx} className="underline underline-offset-3 decoration-stone-700 font-bold">
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   const renderItem = (item: ProgramScheduleItem, idx: number) => (
     <div key={idx} className="py-4 sm:py-5 border-b border-stone-300/70 space-y-1.5">
       <div className="flex items-baseline justify-between gap-3">
@@ -62,7 +77,7 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
         {/* 1. First Group Label (서울 부산) - 위아래 중복 구분선 삭제하여 단일 구분선 유지 */}
         <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
           <span className="text-xs font-semibold text-stone-600 tracking-wider">
-            {firstGroupLabel}
+            {renderFormattedLabel(firstGroupLabel)}
           </span>
         </div>
 
@@ -75,7 +90,7 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
                 {idx === 2 && (
                   <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
                     <span className="text-xs font-semibold text-stone-600 tracking-wider">
-                      {secondGroupLabel}
+                      {renderFormattedLabel(secondGroupLabel)}
                     </span>
                   </div>
                 )}
@@ -83,6 +98,13 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
               </React.Fragment>
             );
           })}
+        </div>
+
+        {/* Legend under last divider */}
+        <div className="pt-2 text-right">
+          <span className="text-xs font-medium text-stone-500">
+            *본공연
+          </span>
         </div>
       </div>
     </section>

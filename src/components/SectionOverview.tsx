@@ -33,60 +33,60 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
   }[fontSize];
 
   return (
-    <section id="overview" className="bg-[#FBF9F5] text-stone-900 py-16 sm:py-24 px-5 sm:px-8 border-b border-stone-200/60">
+    <section id="overview" className="bg-[#183526] text-white py-16 sm:py-24 px-5 sm:px-8 border-b border-[#0F241A]">
       <div className="max-w-3xl mx-auto">
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-stone-950 mb-4 sm:mb-6 leading-[1.25]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-[1.25]">
           {renderWithLineBreaks(meta.title)}
         </h1>
 
         {/* Subtitle / Catchphrase */}
-        <p className={`font-medium text-stone-700 pb-8 mb-10 border-b border-stone-200 text-justified ${leadTextClass}`}>
+        <p className={`font-medium text-stone-200 pb-8 mb-10 border-b border-white/20 text-justified ${leadTextClass}`}>
           {renderWithLineBreaks(meta.subtitle)}
         </p>
 
         {/* Production Quick Overview Details (1-column layout, box removed) */}
-        <div className="space-y-5 mb-14 text-stone-800">
+        <div className="space-y-5 mb-14 text-stone-100">
           {meta.genre && (
             <div>
-              <span className="text-xs font-semibold text-stone-600 block mb-1">공연 장르</span>
-              <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+              <span className="text-xs font-semibold text-emerald-200/80 block mb-1">공연 장르</span>
+              <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
                 {renderWithLineBreaks(meta.genre)}
               </p>
             </div>
           )}
           <div>
-            <span className="text-xs font-semibold text-stone-600 block mb-1">공연 기간</span>
-            <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+            <span className="text-xs font-semibold text-emerald-200/80 block mb-1">공연 기간</span>
+            <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
               {renderWithLineBreaks(meta.dates)}
             </p>
           </div>
           <div>
-            <span className="text-xs font-semibold text-stone-600 block mb-1">공연 장소</span>
-            <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+            <span className="text-xs font-semibold text-emerald-200/80 block mb-1">공연 장소</span>
+            <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
               {renderWithLineBreaks(meta.venue)}
             </p>
           </div>
           <div>
-            <span className="text-xs font-semibold text-stone-600 block mb-1">
+            <span className="text-xs font-semibold text-emerald-200/80 block mb-1">
               {meta.intermission ? '소요 시간 및 인터미션' : '소요 시간'}
             </span>
-            <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+            <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
               {renderWithLineBreaks(meta.runningTime)}
               {meta.intermission ? ` · ${meta.intermission}` : ''}
             </p>
           </div>
           {meta.ageRating && (
             <div>
-              <span className="text-xs font-semibold text-stone-600 block mb-1">관람 등급</span>
-              <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+              <span className="text-xs font-semibold text-emerald-200/80 block mb-1">관람 등급</span>
+              <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
                 {renderWithLineBreaks(meta.ageRating)}
               </p>
             </div>
           )}
           <div>
-            <span className="text-xs font-semibold text-stone-600 block mb-1">예매</span>
-            <p className="font-semibold text-base sm:text-lg text-stone-900 leading-relaxed">
+            <span className="text-xs font-semibold text-emerald-200/80 block mb-1">예매</span>
+            <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
               {renderWithLineBreaks(meta.ticketPrice)}
             </p>
           </div>
@@ -95,15 +95,15 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
         {/* Synopsis (Optional) */}
         {meta.synopsis && meta.synopsis.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-xl sm:text-2xl font-bold text-stone-950 mb-5 tracking-tight flex items-center gap-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-5 tracking-tight flex items-center gap-2">
               <span>시놉시스</span>
-              <span className="text-xs font-normal text-stone-600 tracking-normal">줄거리 개요</span>
+              <span className="text-xs font-normal text-emerald-200/80 tracking-normal">줄거리 개요</span>
             </h2>
             <div className="space-y-4">
               {meta.synopsis.map((paragraph, idx) => (
                 <p
                   key={idx}
-                  className={`text-stone-800 text-justified tracking-[-0.015em] ${bodyTextClass}`}
+                  className={`text-stone-100 text-justified tracking-[-0.015em] ${bodyTextClass}`}
                 >
                   {paragraph}
                 </p>
@@ -114,16 +114,16 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
 
         {/* Creative Team -> 만든 사람들 */}
         <div className="mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-stone-950 mb-4 tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 tracking-tight">
             만든 사람들
           </h2>
-          <div className="border-t border-stone-200 divide-y divide-stone-200">
+          <div className="border-t border-white/20 divide-y divide-white/15">
             {meta.credits.map((item, idx) => (
               <div key={idx} className="py-3 sm:py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-base">
-                <span className="font-semibold text-stone-600 text-sm sm:text-base w-36 shrink-0">
+                <span className="font-semibold text-emerald-200/90 text-sm sm:text-base w-36 shrink-0">
                   {item.role}
                 </span>
-                <span className="font-bold text-stone-900 tracking-tight sm:text-right">
+                <span className="font-bold text-white tracking-tight sm:text-right">
                   {item.names}
                 </span>
               </div>
@@ -133,23 +133,23 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
 
         {/* Collective Norujumping (문단의 짧은 줄글 형식 텍스트) */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-stone-950 mb-4 tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 tracking-tight">
             콜렉티브 노루점핑
           </h2>
-          <div className="border-t border-stone-200 pt-5 space-y-4">
+          <div className="border-t border-white/20 pt-5 space-y-4">
             {typeof meta.collectiveIntro === 'string' && (
-              <p className={`text-stone-850 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
+              <p className={`text-stone-100 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
                 {renderWithLineBreaks(meta.collectiveIntro)}
               </p>
             )}
             {Array.isArray(meta.collectiveIntro) &&
               meta.collectiveIntro.map((para, idx) => (
-                <p key={idx} className={`text-stone-850 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
+                <p key={idx} className={`text-stone-100 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
                   {renderWithLineBreaks(para)}
                 </p>
               ))}
             {!meta.collectiveIntro && meta.cast && meta.cast.length > 0 && (
-              <p className={`text-stone-850 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
+              <p className={`text-stone-100 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
                 {meta.cast.map((c) => `${c.character} (${c.actor})`).join(' · ')}
               </p>
             )}

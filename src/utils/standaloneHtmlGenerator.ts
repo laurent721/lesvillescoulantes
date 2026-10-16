@@ -23,11 +23,11 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
   <style>
     :root {
       --font-gothic: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-      --bg-overview: #FBF9F5;
+      --bg-overview: #183526;
       --bg-schedule: #F8F6F1;
       --bg-producer: #F3EFE9;
       --bg-dramaturg: #EAECE7;
-      --bg-notice: #ECEEF2;
+      --bg-notice: #142238;
       --text-main: #1D2127;
       --text-muted: #525966;
       --border-subtle: rgba(29, 33, 39, 0.12);
@@ -128,11 +128,20 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       margin: 0 auto;
     }
     /* Muted section backgrounds */
-    #overview { background-color: var(--bg-overview); }
+    #overview { background-color: var(--bg-overview); color: #FFFFFF; }
+    #overview .section-title { color: #FFFFFF; }
+    #overview .lead-paragraph { color: #E2E8F0; border-color: rgba(255,255,255,0.2); }
+    #overview .meta-item-label { color: #A7F3D0; }
+    #overview .meta-item-value { color: #FFFFFF; }
+    #overview .list-row { border-color: rgba(255,255,255,0.15); }
+    #overview .list-row .role { color: #A7F3D0; }
+    #overview .list-row .names { color: #FFFFFF; }
+    #overview .justified-text { color: #F1F5F9; }
     #schedule { background-color: var(--bg-schedule); }
     #producer { background-color: var(--bg-producer); }
     #dramaturg { background-color: var(--bg-dramaturg); }
-    #notices { background-color: var(--bg-notice); }
+    #notices { background-color: var(--bg-notice); color: #F1F5F9; }
+    #notices .section-title { color: #FFFFFF; }
 
     /* Category indicator */
     .category-kicker {
@@ -157,11 +166,11 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
         font-size: 2.65rem;
       }
     }
-    /* Justified text specification */
+    /* Justified text specification (character-level wrap for uniform tracking) */
     .justified-text {
       text-align: justify;
       text-justify: inter-word;
-      word-break: keep-all;
+      word-break: break-all;
       overflow-wrap: break-word;
       font-size: 1.125rem;
       line-height: 2.05;
@@ -228,7 +237,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       line-height: 1.85;
       color: var(--text-muted);
       text-align: justify;
-      word-break: keep-all;
+      word-break: break-all;
     }
     .notice-card {
       margin-bottom: 2.5rem;
@@ -249,7 +258,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       font-size: 1.05rem;
       line-height: 1.95;
       text-align: justify;
-      word-break: keep-all;
+      word-break: break-all;
     }
   </style>
 </head>
@@ -340,7 +349,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       
       <!-- First Group Label: 서울 부산 -->
       <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
-        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.firstGroupLabel || '서울 부산'}</span>
+        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${(schedule.firstGroupLabel || '서울 부산').replace(/(30일\*|13일\*)/g, '<u>$1</u>')}</span>
       </div>
 
       <div>
@@ -348,7 +357,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           ${idx === 2 ? `
           <!-- Second Group Label: 부산 -->
           <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
-            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.secondGroupLabel || '부산'}</span>
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${(schedule.secondGroupLabel || '부산').replace(/(30일\*|13일\*)/g, '<u>$1</u>')}</span>
           </div>
           ` : ''}
           <div style="padding: 1.15rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
@@ -359,6 +368,9 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
             ${item.description ? `<p style="margin: 0; padding-left: 0; color: #4B463E; font-size: 1rem; line-height: 1.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.description}</p>` : ''}
           </div>
         `).join('')}
+      </div>
+      <div style="padding-top: 0.5rem; text-align: right; font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">
+        *본공연
       </div>
     </div>
   </section>
@@ -453,32 +465,38 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
   <section id="notices">
     <div class="container">
       <h2 class="section-title">${notices.heading}</h2>
-      <p class="justified-text lead-paragraph">${notices.lead}</p>
+      ${notices.lead ? `<p class="justified-text lead-paragraph" style="color: #CBD5E1; border-color: rgba(255,255,255,0.15);">${notices.lead}</p>` : ''}
 
-      ${notices.categories
-        .map(
-          (cat) => `
-        <div class="notice-card">
-          <h4>${cat.categoryTitle}</h4>
-          <ul>
-            ${cat.items.map((it) => `<li>${it}</li>`).join('')}
-          </ul>
-        </div>
-      `
-        )
-        .join('')}
+      <!-- Unified Notice Guidelines Box (배경색 흰색, 텍스트 검정색 볼드) -->
+      <div style="background: #FFFFFF; border: 1px solid #CBD5E1; padding: 2rem; margin-bottom: 2rem; border-radius: 2px; color: #0F172A;">
+        ${notices.categories
+          .map(
+            (cat, idx) => `
+          <div style="${idx > 0 ? 'margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid #E2E8F0;' : ''}">
+            ${cat.categoryTitle ? `<h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; color: #0F172A;">${cat.categoryTitle}</h4>` : ''}
+            <ul style="padding-left: 0; list-style: none;">
+              ${cat.items.map((it) => `<li style="margin-bottom: 0.85rem; font-size: 1.05rem; line-height: 1.95; text-align: justify; word-break: break-all; display: flex; gap: 0.65rem; color: #0F172A; font-weight: 700;"><span style="font-weight: 800; color: #475569; flex-shrink: 0;">―</span><span>${it}</span></li>`).join('')}
+            </ul>
+          </div>
+        `
+          )
+          .join('')}
 
-      <div class="notice-card" style="background: rgba(230, 235, 240, 0.8);">
-        <h4>비상 대피 및 안전 수칙</h4>
-        <ul>
-          ${notices.emergencyGuide.map((eg) => `<li>${eg}</li>`).join('')}
-        </ul>
+        ${notices.emergencyGuide && notices.emergencyGuide.length > 0 ? `
+          <div style="margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid #E2E8F0;">
+            <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.25rem; color: #0F172A;">비상 대피 및 안전 수칙</h4>
+            <ul style="padding-left: 0; list-style: none;">
+              ${notices.emergencyGuide.map((eg) => `<li style="margin-bottom: 0.85rem; font-size: 1.05rem; line-height: 1.95; text-align: justify; word-break: break-all; display: flex; gap: 0.65rem; color: #0F172A; font-weight: 700;"><span style="font-weight: 800; color: #475569; flex-shrink: 0;">※</span><span>${eg}</span></li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
       </div>
 
-      <div style="margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--border-subtle); background: white;">
-        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">공연 및 예매 문의</h4>
-        <p style="font-size: 1rem; color: var(--text-muted);">전화: ${notices.inquiry.phone} · 이메일: ${notices.inquiry.email}</p>
-        <p style="font-size: 0.925rem; color: var(--text-muted); margin-top: 0.25rem;">운영시간: ${notices.inquiry.operatingHours}</p>
+      <!-- Inquiries (Exception: Separate Box) -->
+      <div style="padding: 1.5rem; border: 1px solid #2B3E60; background: #18263D; border-radius: 2px;">
+        <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;">공연 문의 및 고객 안내</h4>
+        <p style="font-size: 1rem; color: #CBD5E1;">전화: ${notices.inquiry.phone} · 이메일: ${notices.inquiry.email}</p>
+        ${notices.inquiry.operatingHours ? `<p style="font-size: 0.875rem; color: #94A3B8; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">${notices.inquiry.operatingHours}</p>` : ''}
       </div>
     </div>
   </section>
