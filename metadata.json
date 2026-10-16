@@ -1,0 +1,6 @@
+{
+  "name": "흐르는 도시 디지털 프로그램",
+  "description": "콜렉티브 노루점핑의 두 번째 아카이빙 퍼포먼스 '흐르는 도시'의 디지털 프로그램입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

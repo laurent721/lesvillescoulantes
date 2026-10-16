@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Segoe UI', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Korean high-legibility justified text */
+.text-justified {
+  text-align: justify;
+  text-justify: inter-word;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Category backgrounds - soft, eye-friendly, calm natural paper tones (non-stimulating) */
+.bg-category-overview {
+  background-color: #FBF9F5;
+}
+
+.bg-category-producer {
+  background-color: #F3EFE9;
+}
+
+.bg-category-dramaturg {
+  background-color: #EAECE7;
+}
+
+.bg-category-notice {
+  background-color: #ECEEF2;
+}
+
+/* High contrast gentle dark text */
+.text-content-primary {
+  color: #1A1F26;
+}
+
+.text-content-secondary {
+  color: #4A5361;
+}
+
+.border-category-subtle {
+  border-color: rgba(26, 31, 38, 0.12);
+}
+
+/* Print styling */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  section {
+    page-break-inside: avoid;
+    padding: 2rem 0 !important;
+  }
+}
