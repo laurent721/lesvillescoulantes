@@ -17,7 +17,7 @@ import { ContentEditorModal } from './components/ContentEditorModal';
 import { generateStandaloneHtml } from './utils/standaloneHtmlGenerator';
 import { SlidersHorizontal, QrCode, Download } from 'lucide-react';
 
-const STORAGE_KEY = 'theatrical_program_content_v19';
+const STORAGE_KEY = 'theatrical_program_content_v20';
 const FONT_STORAGE_KEY = 'theatrical_program_fontsize_v1';
 
 export default function App() {

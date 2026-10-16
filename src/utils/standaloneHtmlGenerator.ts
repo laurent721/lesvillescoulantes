@@ -351,6 +351,12 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
         <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${(schedule.firstGroupLabel || '서울 부산').replace(/(30일\*|13일\*)/g, '<u>$1</u>')}</span>
       </div>
+      ${schedule.firstGroupTime ? `
+      <!-- First Group Opening Time -->
+      <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
+        <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.firstGroupTime}</span>
+      </div>
+      ` : ''}
 
       <div>
         ${schedule.items.map((item, idx) => `
@@ -359,6 +365,12 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
             <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${(schedule.secondGroupLabel || '부산').replace(/(30일\*|13일\*)/g, '<u>$1</u>')}</span>
           </div>
+          ${schedule.secondGroupTime ? `
+          <!-- Second Group Opening Time -->
+          <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.secondGroupTime}</span>
+          </div>
+          ` : ''}
           ` : ''}
           <div style="padding: 1.15rem 0; border-bottom: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
             <div style="display: flex; align-items: baseline; gap: 0.75rem; justify-content: space-between; flex-wrap: wrap;">

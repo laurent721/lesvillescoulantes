@@ -18,7 +18,9 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
   }[fontSize];
 
   const firstGroupLabel = schedule.firstGroupLabel || '서울 부산';
+  const firstGroupTime = schedule.firstGroupTime;
   const secondGroupLabel = schedule.secondGroupLabel || '부산';
+  const secondGroupTime = schedule.secondGroupTime;
 
   // Helper to underline 30일* and 13일*
   const renderFormattedLabel = (label: string) => {
@@ -74,25 +76,43 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
         {/* Top line if note not present */}
         {!schedule.note && <div className="border-t border-stone-300/70" />}
 
-        {/* 1. First Group Label (서울 부산) - 위아래 중복 구분선 삭제하여 단일 구분선 유지 */}
+        {/* 1. First Group Label (서울 부산) */}
         <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
           <span className="text-xs font-semibold text-stone-600 tracking-wider">
             {renderFormattedLabel(firstGroupLabel)}
           </span>
         </div>
 
+        {/* 1. First Group Opening Time */}
+        {firstGroupTime && (
+          <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
+            <span className="text-xs font-semibold text-stone-600 tracking-wider">
+              {firstGroupTime}
+            </span>
+          </div>
+        )}
+
         {/* Items List */}
         <div>
           {schedule.items.map((item, idx) => {
             return (
               <React.Fragment key={idx}>
-                {/* 2. Second Group Label (부산) between item 2 and item 3 - 위 구분선 삭제하여 단일 구분선 유지 */}
+                {/* 2. Second Group Label between item 2 and item 3 */}
                 {idx === 2 && (
-                  <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
-                    <span className="text-xs font-semibold text-stone-600 tracking-wider">
-                      {renderFormattedLabel(secondGroupLabel)}
-                    </span>
-                  </div>
+                  <>
+                    <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
+                      <span className="text-xs font-semibold text-stone-600 tracking-wider">
+                        {renderFormattedLabel(secondGroupLabel)}
+                      </span>
+                    </div>
+                    {secondGroupTime && (
+                      <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
+                        <span className="text-xs font-semibold text-stone-600 tracking-wider">
+                          {secondGroupTime}
+                        </span>
+                      </div>
+                    )}
+                  </>
                 )}
                 {renderItem(item, idx)}
               </React.Fragment>

@@ -85,7 +85,9 @@ export interface ProgramSchedule {
   heading: string;
   note?: string;
   firstGroupLabel?: string;
+  firstGroupTime?: string;
   secondGroupLabel?: string;
+  secondGroupTime?: string;
   items: ProgramScheduleItem[];
 }
 

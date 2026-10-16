@@ -359,14 +359,94 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
                       setFormData({
                         ...formData,
                         schedule: {
-                          heading: formData.schedule?.heading || '공연 진행 순서',
+                          heading: formData.schedule?.heading || '공연 진행',
                           note: e.target.value,
+                          firstGroupLabel: formData.schedule?.firstGroupLabel,
+                          firstGroupTime: formData.schedule?.firstGroupTime,
+                          secondGroupLabel: formData.schedule?.secondGroupLabel,
+                          secondGroupTime: formData.schedule?.secondGroupTime,
                           items: formData.schedule?.items || []
                         }
                       })
                     }
                     placeholder="※ 당일 현장 진행에 따라 유동적으로 운영될 수 있습니다."
                     className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Group Labels and Times */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-stone-200">
+                <div>
+                  <label className="block text-xs font-bold text-stone-700 mb-1">첫 번째 그룹 라벨</label>
+                  <input
+                    type="text"
+                    value={formData.schedule?.firstGroupLabel || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        schedule: {
+                          ...formData.schedule!,
+                          firstGroupLabel: e.target.value
+                        }
+                      })
+                    }
+                    placeholder="서울(26일 30일*) 부산(11일 12일 13일*)"
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-stone-700 mb-1">첫 번째 개막시간</label>
+                  <input
+                    type="text"
+                    value={formData.schedule?.firstGroupTime || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        schedule: {
+                          ...formData.schedule!,
+                          firstGroupTime: e.target.value
+                        }
+                      })
+                    }
+                    placeholder="개막시간: 19:00"
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-stone-700 mb-1">두 번째 그룹 라벨</label>
+                  <input
+                    type="text"
+                    value={formData.schedule?.secondGroupLabel || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        schedule: {
+                          ...formData.schedule!,
+                          secondGroupLabel: e.target.value
+                        }
+                      })
+                    }
+                    placeholder="서울(27일 28일 29일)"
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-stone-700 mb-1">두 번째 개막시간</label>
+                  <input
+                    type="text"
+                    value={formData.schedule?.secondGroupTime || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        schedule: {
+                          ...formData.schedule!,
+                          secondGroupTime: e.target.value
+                        }
+                      })
+                    }
+                    placeholder="개막시간: 19:00"
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
                   />
                 </div>
               </div>
