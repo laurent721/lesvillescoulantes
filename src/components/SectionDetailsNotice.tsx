@@ -82,13 +82,7 @@ export const SectionDetailsNotice: React.FC<SectionDetailsNoticeProps> = ({ noti
           <h4 className="font-bold text-base sm:text-lg text-white mb-2">
             공연 문의 및 고객 안내
           </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base text-slate-300">
-            <div>
-              <span className="font-semibold text-white">전화 문의:</span>{' '}
-              <a href={`tel:${notices.inquiry.phone}`} className="hover:underline text-sky-300 font-medium">
-                {notices.inquiry.phone}
-              </a>
-            </div>
+          <div className="space-y-2 text-sm sm:text-base text-slate-300">
             <div>
               <span className="font-semibold text-white">이메일:</span>{' '}
               <a href={`mailto:${notices.inquiry.email}`} className="hover:underline text-sky-300 font-medium">
@@ -96,7 +90,7 @@ export const SectionDetailsNotice: React.FC<SectionDetailsNoticeProps> = ({ noti
               </a>
             </div>
             {notices.inquiry.operatingHours && (
-              <div className="sm:col-span-2 text-xs sm:text-sm text-slate-400 mt-2 pt-2 border-t border-[#2B3E60]/70">
+              <div className="text-xs sm:text-sm text-slate-400 mt-2 pt-2 border-t border-[#2B3E60]/70">
                 {notices.inquiry.operatingHours}
               </div>
             )}

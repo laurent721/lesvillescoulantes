@@ -507,7 +507,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       <!-- Inquiries (Exception: Separate Box) -->
       <div style="padding: 1.5rem; border: 1px solid #2B3E60; background: #18263D; border-radius: 2px;">
         <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;">공연 문의 및 고객 안내</h4>
-        <p style="font-size: 1rem; color: #CBD5E1;">전화: ${notices.inquiry.phone} · 이메일: ${notices.inquiry.email}</p>
+        <p style="font-size: 1rem; color: #CBD5E1;">이메일: ${notices.inquiry.email}</p>
         ${notices.inquiry.operatingHours ? `<p style="font-size: 0.875rem; color: #94A3B8; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">${notices.inquiry.operatingHours}</p>` : ''}
       </div>
     </div>
