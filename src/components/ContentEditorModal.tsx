@@ -18,7 +18,7 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
   onSaveContent,
   onDownloadHtml
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'schedule' | 'producer' | 'dramaturg' | 'notices'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'schedule' | 'directions' | 'producer' | 'dramaturg' | 'notices'>('overview');
   const [formData, setFormData] = useState<ProgramBookContent>(JSON.parse(JSON.stringify(content)));
   const [saveSuccess, setSaveSuccess] = useState(false);
 
@@ -88,6 +88,16 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
             }`}
           >
             진행 순서
+          </button>
+          <button
+            onClick={() => setActiveTab('directions')}
+            className={`py-3 px-3 border-b-2 transition-colors whitespace-nowrap ${
+              activeTab === 'directions'
+                ? 'border-stone-900 text-stone-950 bg-stone-100/80 font-bold'
+                : 'border-transparent hover:text-stone-900'
+            }`}
+          >
+            오시는 길
           </button>
           <button
             onClick={() => setActiveTab('producer')}
@@ -449,6 +459,24 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
                     className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
                   />
                 </div>
+                <div className="md:col-span-2">
+                  <label className="block text-xs font-bold text-stone-700 mb-1">하단 안내 텍스트박스 (흰색 박스)</label>
+                  <input
+                    type="text"
+                    value={formData.schedule?.noticeBox || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        schedule: {
+                          ...formData.schedule!,
+                          noticeBox: e.target.value
+                        }
+                      })
+                    }
+                    placeholder="퍼포먼스 2의 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 길면 길수록 좋습니다."
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-xs"
+                  />
+                </div>
               </div>
 
               {/* Schedule items */}
@@ -558,6 +586,139 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
                   ))}
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* TAB: DIRECTIONS (오시는 길) */}
+          {activeTab === 'directions' && (
+            <div className="space-y-6">
+              <div>
+                <label className="block text-xs font-bold text-stone-700 mb-1">섹션 제목</label>
+                <input
+                  type="text"
+                  value={formData.directions?.heading || '오시는 길'}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      directions: {
+                        heading: e.target.value,
+                        venues: formData.directions?.venues || []
+                      }
+                    })
+                  }
+                  placeholder="오시는 길"
+                  className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none text-sm font-bold"
+                />
+              </div>
+
+              {(formData.directions?.venues || []).map((venue, vIdx) => (
+                <div key={vIdx} className="bg-white p-4 border border-stone-300 rounded space-y-3">
+                  <div>
+                    <label className="block text-xs font-bold text-stone-700 mb-1">
+                      공연장 {vIdx + 1} 제목 (큰글자, 볼드)
+                    </label>
+                    <input
+                      type="text"
+                      value={venue.title}
+                      onChange={(e) => {
+                        const updated = [...(formData.directions?.venues || [])];
+                        updated[vIdx] = { ...updated[vIdx], title: e.target.value };
+                        setFormData({
+                          ...formData,
+                          directions: {
+                            heading: formData.directions?.heading || '오시는 길',
+                            venues: updated
+                          }
+                        });
+                      }}
+                      className="w-full px-3 py-2 bg-stone-50 border border-stone-300 rounded text-sm font-extrabold text-stone-900"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                    <div>
+                      <label className="block text-xs font-semibold text-stone-600 mb-1">지하철 이용시</label>
+                      <input
+                        type="text"
+                        value={venue.subway || ''}
+                        onChange={(e) => {
+                          const updated = [...(formData.directions?.venues || [])];
+                          updated[vIdx] = { ...updated[vIdx], subway: e.target.value };
+                          setFormData({
+                            ...formData,
+                            directions: {
+                              heading: formData.directions?.heading || '오시는 길',
+                              venues: updated
+                            }
+                          });
+                        }}
+                        placeholder="지하철 경로 안내"
+                        className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-stone-600 mb-1">버스 이용시</label>
+                      <input
+                        type="text"
+                        value={venue.bus || ''}
+                        onChange={(e) => {
+                          const updated = [...(formData.directions?.venues || [])];
+                          updated[vIdx] = { ...updated[vIdx], bus: e.target.value };
+                          setFormData({
+                            ...formData,
+                            directions: {
+                              heading: formData.directions?.heading || '오시는 길',
+                              venues: updated
+                            }
+                          });
+                        }}
+                        placeholder="버스 경로 안내"
+                        className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-stone-600 mb-1">차량 이용시</label>
+                      <input
+                        type="text"
+                        value={venue.car || ''}
+                        onChange={(e) => {
+                          const updated = [...(formData.directions?.venues || [])];
+                          updated[vIdx] = { ...updated[vIdx], car: e.target.value };
+                          setFormData({
+                            ...formData,
+                            directions: {
+                              heading: formData.directions?.heading || '오시는 길',
+                              venues: updated
+                            }
+                          });
+                        }}
+                        placeholder="차량 경로 안내"
+                        className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded text-xs"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-stone-600 mb-1">택시 이용시</label>
+                      <input
+                        type="text"
+                        value={venue.taxi || ''}
+                        onChange={(e) => {
+                          const updated = [...(formData.directions?.venues || [])];
+                          updated[vIdx] = { ...updated[vIdx], taxi: e.target.value };
+                          setFormData({
+                            ...formData,
+                            directions: {
+                              heading: formData.directions?.heading || '오시는 길',
+                              venues: updated
+                            }
+                          });
+                        }}
+                        placeholder="택시 경로 안내"
+                        className="w-full px-2.5 py-1.5 bg-white border border-stone-300 rounded text-xs"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
 

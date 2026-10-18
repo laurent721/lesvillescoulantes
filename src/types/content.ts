@@ -81,6 +81,19 @@ export interface ProgramScheduleItem {
   description?: string;
 }
 
+export interface DirectionVenue {
+  title: string;
+  subway?: string;
+  bus?: string;
+  car?: string;
+  taxi?: string;
+}
+
+export interface DirectionsSection {
+  heading: string;
+  venues: DirectionVenue[];
+}
+
 export interface ProgramSchedule {
   heading: string;
   note?: string;
@@ -88,12 +101,14 @@ export interface ProgramSchedule {
   firstGroupTime?: string;
   secondGroupLabel?: string;
   secondGroupTime?: string;
+  noticeBox?: string;
   items: ProgramScheduleItem[];
 }
 
 export interface ProgramBookContent {
   meta: ProductionMeta;
   schedule?: ProgramSchedule;
+  directions?: DirectionsSection;
   producerNote: ProducerNote;
   dramaturgNote: DramaturgNote;
   notices: PerformanceNotice;

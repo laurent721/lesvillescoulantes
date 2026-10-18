@@ -8,6 +8,7 @@ import { ProgramBookContent } from '../types/content';
 export function generateStandaloneHtml(content: ProgramBookContent): string {
   const meta = content.meta;
   const schedule = content.schedule;
+  const directions = content.directions;
   const producer = content.producerNote;
   const dramaturg = content.dramaturgNote;
   const notices = content.notices;
@@ -25,6 +26,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       --font-gothic: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
       --bg-overview: #183526;
       --bg-schedule: #F8F6F1;
+      --bg-directions: #F5F2EB;
       --bg-producer: #F3EFE9;
       --bg-dramaturg: #EAECE7;
       --bg-notice: #142238;
@@ -138,6 +140,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
     #overview .list-row .names { color: #FFFFFF; }
     #overview .justified-text { color: #F1F5F9; }
     #schedule { background-color: var(--bg-schedule); }
+    #directions { background-color: var(--bg-directions); }
     #producer { background-color: var(--bg-producer); }
     #dramaturg { background-color: var(--bg-dramaturg); }
     #notices { background-color: var(--bg-notice); color: #F1F5F9; }
@@ -270,6 +273,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       <ul class="nav-links">
         <li><a href="#overview">개요</a></li>
         <li><a href="#schedule">진행 순서</a></li>
+        ${directions ? '<li><a href="#directions">오시는 길</a></li>' : ''}
         <li><a href="#producer">제작자의 말</a></li>
         <li><a href="#dramaturg">드라마투르기의 말</a></li>
         <li><a href="#notices">공연 안내</a></li>
@@ -383,6 +387,38 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
       </div>
       <div style="padding-top: 0.5rem; text-align: right; font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">
         *본공연
+      </div>
+
+      <!-- Notice Box (흰색 배경 텍스트 박스, 볼드 효과) -->
+      <div style="margin-top: 1.5rem; background: #FFFFFF; border: 1px solid rgba(0,0,0,0.12); padding: 1.25rem 1.5rem; border-radius: 2px;">
+        <div style="text-align: center; margin-bottom: 0.65rem;">
+          <span style="font-size: 0.75rem; font-weight: 600; color: #78716C; letter-spacing: 0.05em;">안내</span>
+        </div>
+        <p style="margin: 0; font-weight: 700; color: #1C1917; font-size: 0.95rem; line-height: 1.7; word-break: break-all;">
+          ${schedule.noticeBox || '퍼포먼스 2의 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 길면 길수록 좋습니다.'}
+        </p>
+      </div>
+    </div>
+  </section>
+  ` : ''}
+
+  <!-- 오시는 길 -->
+  ${directions && directions.venues && directions.venues.length > 0 ? `
+  <section id="directions">
+    <div class="container">
+      <h2 class="section-title">${directions.heading || '오시는 길'}</h2>
+      <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+        ${directions.venues.map((venue) => `
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
+            <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">${venue.title}</h3>
+            <div style="border-bottom: 1px solid var(--border-subtle);">
+              ${venue.subway ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">지하철 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.subway}</span></div>` : ''}
+              ${venue.bus ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">버스 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.bus}</span></div>` : ''}
+              ${venue.car ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">차량 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.car}</span></div>` : ''}
+              ${venue.taxi ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">택시 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.taxi}</span></div>` : ''}
+            </div>
+          </div>
+        `).join('')}
       </div>
     </div>
   </section>
@@ -506,7 +542,7 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
 
       <!-- Inquiries (Exception: Separate Box) -->
       <div style="padding: 1.5rem; border: 1px solid #2B3E60; background: #18263D; border-radius: 2px;">
-        <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;">공연 문의 및 고객 안내</h4>
+        <h4 style="font-weight: 700; margin-bottom: 0.5rem; color: #FFFFFF;">공연 문의</h4>
         <p style="font-size: 1rem; color: #CBD5E1;">이메일: ${notices.inquiry.email}</p>
         ${notices.inquiry.operatingHours ? `<p style="font-size: 0.875rem; color: #94A3B8; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">${notices.inquiry.operatingHours}</p>` : ''}
       </div>

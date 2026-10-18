@@ -126,6 +126,18 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
             *본공연
           </span>
         </div>
+
+        {/* Notice Box (흰색 배경 텍스트 박스, 볼드 효과) */}
+        <div className="mt-6 bg-white border border-stone-200/90 p-4 sm:p-5 rounded-sm text-stone-900 shadow-2xs">
+          <div className="text-center mb-2.5">
+            <span className="text-xs font-semibold text-stone-500 tracking-wider">
+              안내
+            </span>
+          </div>
+          <p className="font-bold text-sm sm:text-base leading-relaxed break-all">
+            {schedule.noticeBox || '퍼포먼스 2의 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 길면 길수록 좋습니다.'}
+          </p>
+        </div>
       </div>
     </section>
   );

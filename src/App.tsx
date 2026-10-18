@@ -9,6 +9,7 @@ import { ProgramBookContent } from './types/content';
 import { Navigation } from './components/Navigation';
 import { SectionOverview } from './components/SectionOverview';
 import { SectionProgramSchedule } from './components/SectionProgramSchedule';
+import { SectionDirections } from './components/SectionDirections';
 import { SectionProducerNote } from './components/SectionProducerNote';
 import { SectionDramaturgNote } from './components/SectionDramaturgNote';
 import { SectionDetailsNotice } from './components/SectionDetailsNotice';
@@ -17,7 +18,7 @@ import { ContentEditorModal } from './components/ContentEditorModal';
 import { generateStandaloneHtml } from './utils/standaloneHtmlGenerator';
 import { SlidersHorizontal, QrCode, Download } from 'lucide-react';
 
-const STORAGE_KEY = 'theatrical_program_content_v21';
+const STORAGE_KEY = 'theatrical_program_content_v22';
 const FONT_STORAGE_KEY = 'theatrical_program_fontsize_v1';
 
 export default function App() {
@@ -77,7 +78,7 @@ export default function App() {
 
   // Track active section via IntersectionObserver
   useEffect(() => {
-    const sectionIds = ['overview', 'schedule', 'producer', 'dramaturg', 'notices'];
+    const sectionIds = ['overview', 'schedule', 'directions', 'producer', 'dramaturg', 'notices'];
     const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -133,6 +134,11 @@ export default function App() {
 
         {/* Category: 공연프로그램 진행순서 */}
         <SectionProgramSchedule schedule={content.schedule} fontSize={fontSize} />
+
+        {/* Category: 오시는 길 */}
+        {content.directions && (
+          <SectionDirections directions={content.directions} fontSize={fontSize} />
+        )}
 
         {/* Category 2: 제작자의 말 */}
         <SectionProducerNote note={content.producerNote} fontSize={fontSize} />

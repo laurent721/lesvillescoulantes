@@ -23,6 +23,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const navItems = [
     { id: 'overview', label: '개요' },
     { id: 'schedule', label: '진행 순서' },
+    { id: 'directions', label: '오시는 길' },
     { id: 'producer', label: '제작자의 말' },
     { id: 'dramaturg', label: '드라마투르기의 말' },
     { id: 'notices', label: '공연 안내' }

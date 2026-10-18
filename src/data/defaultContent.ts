@@ -34,6 +34,7 @@ export const defaultProgramContent: ProgramBookContent = {
     firstGroupTime: '개막시간: 19시(서울) 15시(부산)',
     secondGroupLabel: '서울(27일 28일 29일)',
     secondGroupTime: '개막시간: 13시부터(예약제)',
+    noticeBox: '퍼포먼스 2는 모두가 함께 만드는 순서입니다. 퍼포먼스의 원활한 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 길면 길수록 좋습니다.',
     items: [
       {
         title: '퍼포먼스 1 — 얼음땡',
@@ -49,6 +50,25 @@ export const defaultProgramContent: ProgramBookContent = {
         title: '흐르는 캠퍼스를 걷다',
         duration: '자유시간',
         description: '나만의 경로로 걷는 민주화의 길'
+      }
+    ]
+  },
+  directions: {
+    heading: '오시는 길',
+    venues: [
+      {
+        title: '서울대학교 인문소극장 오시는 길',
+        subway: '0000',
+        bus: '000',
+        car: '000',
+        taxi: '000'
+      },
+      {
+        title: '민주공원 민주항쟁기념관 오시는 길',
+        subway: '000',
+        bus: '000',
+        car: '000',
+        taxi: '000'
       }
     ]
   },
@@ -173,7 +193,7 @@ export const defaultProgramContent: ProgramBookContent = {
     inquiry: {
       phone: '',
       email: 'collectivenoroojumping@gmail.com',
-      operatingHours: '※이 사이트는 인간이 입력한 프롬프트를 기반으로 Google ai studio가 생성한 코드로 구축되었으며, 수록된 모든 글은 인간의 창작물이다.'
+      operatingHours: '이 페이지는 인간이 입력한 프롬프트를 기반으로 Google ai studio가 생성한 코드로 구축되었으며, 수록된 모든 글은 AI를 사용하지 않은 인간의 창작물이다.'
     }
   }
 };

@@ -80,7 +80,7 @@ export const SectionDetailsNotice: React.FC<SectionDetailsNoticeProps> = ({ noti
         {/* Inquiries & Operation info (제2 텍스트박스: 예외로 유지되는 독립 박스) */}
         <div className="bg-[#18263D] border border-[#2B3E60] p-6 rounded-sm text-slate-200 shadow-sm">
           <h4 className="font-bold text-base sm:text-lg text-white mb-2">
-            공연 문의 및 고객 안내
+            공연 문의
           </h4>
           <div className="space-y-2 text-sm sm:text-base text-slate-300">
             <div>
