@@ -412,10 +412,38 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.5rem;">
             <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">${venue.title}</h3>
             <div style="border-bottom: 1px solid var(--border-subtle);">
-              ${venue.subway ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">지하철 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.subway}</span></div>` : ''}
-              ${venue.bus ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">버스 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.bus}</span></div>` : ''}
-              ${venue.car ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">차량 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.car}</span></div>` : ''}
-              ${venue.taxi ? `<div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.25rem;"><strong style="font-size: 0.95rem; color: var(--text-main);">택시 이용시:</strong><span style="font-size: 1rem; color: var(--text-main); word-break: break-all;">${venue.taxi}</span></div>` : ''}
+              ${venue.subway ? `
+                <div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <strong style="font-size: 0.95rem; color: var(--text-main);">지하철 이용시:</strong>
+                  <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    ${venue.subway.split(/<br\s*\/?>|\n/).map(l => l.trim()).filter(Boolean).map(line => `<span style="font-size: 1rem; color: var(--text-main); word-break: break-all; line-height: 1.6;">${line}</span>`).join('')}
+                  </div>
+                </div>
+              ` : ''}
+              ${venue.bus ? `
+                <div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <strong style="font-size: 0.95rem; color: var(--text-main);">버스 이용시:</strong>
+                  <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    ${venue.bus.split(/<br\s*\/?>|\n/).map(l => l.trim()).filter(Boolean).map(line => `<span style="font-size: 1rem; color: var(--text-main); word-break: break-all; line-height: 1.6;">${line}</span>`).join('')}
+                  </div>
+                </div>
+              ` : ''}
+              ${venue.car ? `
+                <div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <strong style="font-size: 0.95rem; color: var(--text-main);">차량 이용시:</strong>
+                  <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    ${venue.car.split(/<br\s*\/?>|\n/).map(l => l.trim()).filter(Boolean).map(line => `<span style="font-size: 1rem; color: var(--text-main); word-break: break-all; line-height: 1.6;">${line}</span>`).join('')}
+                  </div>
+                </div>
+              ` : ''}
+              ${venue.taxi ? `
+                <div style="padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.35rem;">
+                  <strong style="font-size: 0.95rem; color: var(--text-main);">택시 이용시:</strong>
+                  <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    ${venue.taxi.split(/<br\s*\/?>|\n/).map(l => l.trim()).filter(Boolean).map(line => `<span style="font-size: 1rem; color: var(--text-main); word-break: break-all; line-height: 1.6;">${line}</span>`).join('')}
+                  </div>
+                </div>
+              ` : ''}
             </div>
           </div>
         `).join('')}

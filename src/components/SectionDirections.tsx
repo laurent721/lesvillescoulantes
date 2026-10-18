@@ -17,6 +17,22 @@ export const SectionDirections: React.FC<SectionDirectionsProps> = ({ directions
     xl: 'text-[17px] sm:text-lg'
   }[fontSize];
 
+  const renderDetail = (text: string) => {
+    const lines = text.split(/<br\s*\/?>|\n/).map((l) => l.trim()).filter(Boolean);
+    if (lines.length <= 1) {
+      return <span className="text-stone-850 break-all flex-1">{text}</span>;
+    }
+    return (
+      <div className="flex-1 space-y-2">
+        {lines.map((line, idx) => (
+          <p key={idx} className="text-stone-850 break-all leading-relaxed">
+            {line}
+          </p>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <section id="directions" className="bg-[#F5F2EB] text-stone-900 py-16 sm:py-24 px-5 sm:px-8 border-b border-stone-300/60">
       <div className="max-w-3xl mx-auto">
@@ -39,25 +55,25 @@ export const SectionDirections: React.FC<SectionDirectionsProps> = ({ directions
                 {venue.subway && (
                   <div className={`py-3 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 ${bodyTextClass}`}>
                     <span className="font-bold text-stone-900 w-32 shrink-0">지하철 이용시:</span>
-                    <span className="text-stone-850 break-all flex-1">{venue.subway}</span>
+                    {renderDetail(venue.subway)}
                   </div>
                 )}
                 {venue.bus && (
                   <div className={`py-3 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 ${bodyTextClass}`}>
                     <span className="font-bold text-stone-900 w-32 shrink-0">버스 이용시:</span>
-                    <span className="text-stone-850 break-all flex-1">{venue.bus}</span>
+                    {renderDetail(venue.bus)}
                   </div>
                 )}
                 {venue.car && (
                   <div className={`py-3 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 ${bodyTextClass}`}>
                     <span className="font-bold text-stone-900 w-32 shrink-0">차량 이용시:</span>
-                    <span className="text-stone-850 break-all flex-1">{venue.car}</span>
+                    {renderDetail(venue.car)}
                   </div>
                 )}
                 {venue.taxi && (
                   <div className={`py-3 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4 ${bodyTextClass}`}>
                     <span className="font-bold text-stone-900 w-32 shrink-0">택시 이용시:</span>
-                    <span className="text-stone-850 break-all flex-1">{venue.taxi}</span>
+                    {renderDetail(venue.taxi)}
                   </div>
                 )}
               </div>

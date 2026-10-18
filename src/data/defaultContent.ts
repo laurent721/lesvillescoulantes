@@ -34,7 +34,7 @@ export const defaultProgramContent: ProgramBookContent = {
     firstGroupTime: '개막시간: 19시(서울) 15시(부산)',
     secondGroupLabel: '서울(27일 28일 29일)',
     secondGroupTime: '개막시간: 13시부터(예약제)',
-    noticeBox: '퍼포먼스 2는 모두가 함께 만드는 순서입니다. 퍼포먼스의 원활한 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 길면 길수록 좋습니다.',
+    noticeBox: '퍼포먼스 2는 모두가 함께 만드는 순서입니다. 퍼포먼스의 원활한 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 어떤 색이든 상관 없이 길면 길수록 좋습니다.',
     items: [
       {
         title: '퍼포먼스 1 — 얼음땡',
@@ -58,17 +58,17 @@ export const defaultProgramContent: ProgramBookContent = {
     venues: [
       {
         title: '서울대학교 인문소극장 오시는 길',
-        subway: '0000',
-        bus: '000',
-        car: '000',
-        taxi: '000'
+        subway: '2호선 낙성대역 하차 → 4번출구로 나와 주유소 끼고 좌회전 → 장블랑제리 앞 관악02-2 버스 탑승 → 행정관 정류장 하차 <br> 2호선 서울대입구역 하차 → 3번출구로 나와 5511 버스 탑승 → 관악사삼거리 정류장 하차 → 버스가 온 방향으로 거슬러 내려가 농구장 지나 주차타워 진출입로 사이 왼쪽 도토리계단 이용 <br> 신림선 관악산역 하차 → 1번출구로 나와 5516 버스 탑승 → 자연대행정관 정류장 또는 관악사삼거리 정류장 하차 → 자연대행정관 정류장 하차시 행정관-인문대 거쳐 6동 뒤편 14동 도보 이동',
+        bus: '2호선 서울대입구역 3번출구로 나와 직진하여 커피빈 앞 행정관 셔틀 정류장에서 셔틀버스 이용 → 행정관에서 인문대 거쳐 6동 뒤편 14동 도보 이동',
+        car: '내비게이션에 "나들문 G12" 경로 입력 후 이동하여 주차타워에 주차(캠퍼스 내 주차료 발생)',
+        taxi: '관악사삼거리 하차 후 농구장과 주차타워 진출입로 사이 왼쪽 도토리계단 이용'
       },
       {
         title: '민주공원 민주항쟁기념관 오시는 길',
-        subway: '000',
-        bus: '000',
-        car: '000',
-        taxi: '000'
+        subway: '1호선 동대신역 또는 부산역 이용 후 버스 또는 택시로 환승',
+        bus: '중앙도서관 정류장: 중구1 <br> 중앙공원.민주공원 정류장: 48, 43, 70, 508',
+        car: '민주항쟁기념관 주차장 이용(주차공간이 협소하여 주차가 불가할 수 있습니다)',
+        taxi: '민주공원 하차'
       }
     ]
   },
@@ -90,9 +90,11 @@ export const defaultProgramContent: ProgramBookContent = {
         authorName: 'Ahn Geon-woo',
         heading: 'Ressentir le même espace aux côtés de présences désormais disparues',
         paragraphs: [
-          'Nous croyons que le théâtre doit toujours demeurer un espace de résistance face à la vitesse du monde contemporain. Dans une société où tout s’efface et se remplace à un rythme effréné, nous avançons sans même avoir le temps de nous demander ce que nous perdons en chemin. Cette création est née du désir d’accueillir sur la scène, telle une humble écuelle, les voix de ceux qui habitaient des lieux sans nom, effacés des cartes par cette gigantesque accélération.',
-          'Porter une œuvre sur scène ne se résume pas à mettre en images un texte imprimé. C’est tisser une mémoire commune où résonnent la respiration de l’acteur, la texture des décors, l’obscurité des lumières et la densité des silences partagés avec le public. Pour cette production, nous avons délibérément écarté tout artifice ou ornement superflu afin de nous consacrer à la sincérité du verbe et à la résonance essentielle du texte.',
-          'Nous espérons que le public présent ce soir pourra, le temps de cette représentation, déposer le bruit du quotidien. Puisse cet instant suspendu dans la salle entrouvrir avec douceur la porte d’un souvenir précieux enfoui au plus profond de chacun d’entre vous.'
+          'Dans chaque espace, il existe des traces laissées par les êtres du passé. Ces traces s’accumulent pendant longtemps et finissent par former l’histoire d’un lieu. Il existe plusieurs manières d’enregistrer et de consulter cette histoire. Il y a aussi, forcément, des histoires qui ne peuvent pas être mises en mots.',
+          'Le geste en est un exemple. Un geste enregistré par l’écriture ressemble à un poème secret : il ne peut pas montrer entièrement la forme réelle du geste. Mais c’est justement dans ce caractère imprécis que se trouvent des contextes cachés, restés au-delà de ce qui a été écrit. À travers notre recherche sur Park Jong-cheol et sur le mouvement de démocratisation de 1987, nous avons essayé de suivre l’histoire des gestes qui apparaissent dans différents documents écrits. Les gestes étaient très divers dans les archives, comme ils le sont dans la réalité : gestes de cri, de dénonciation, de silence, de fuite, gestes de lancer, de frapper, de demander pardon, de se repentir, de protester, de tomber, et beaucoup d’autres encore. Parmi tous ces gestes qui composent l’histoire, nous avons décidé d’essayer de sentir et d’expérimenter l’histoire à travers le corps comme matière et le geste comme action.',
+          'Et il existe une ville dans laquelle tous ces gestes ont autrefois circulé et débordé. Au moment où les gestes exprimant le désir de démocratie formaient un nouveau paysage urbain, les citoyens sont eux-mêmes sortis dans les rues. Ils ont fait de leurs corps des gestes et ont crié pour la justice au milieu d’une époque où les bouches étaient fermées et les yeux couverts. La ville est alors devenue, volontairement, une scène où les gestes pouvaient se déployer.',
+          'C’est la même ville, mais aujourd’hui elle nous apparaît autrement. Les jeunes qui étaient descendus dans la rue ont maintenant des corps d’âge moyen. Certains de ces corps ont sans doute déjà disparu. Pourtant, nous savons que les cris et les tensions de cette époque font encore partie de la ville. Maintenant que les êtres du passé s’éloignent peu à peu avec le mouvement du temps, quel sens peut avoir une tentative de sentir les contextes du passé avec un corps jeune ? Qu’est-ce que nous pouvons rencontrer à ce point de contact ?',
+          'Comme dans la ville de cette époque, personne ne sait ce qui se trouvera à la fin de cette performance, créée ensemble par les corps de tous les performeurs présents dans un même espace. Pour cette raison, l’expérience vécue par chaque corps sera également différente. Pendant que plusieurs performances émergent en même temps, nous attendons de voir de quelle manière nos corps pourront entrer en contact avec les contextes du passé.'
         ],
         closing: ''
       },
@@ -101,9 +103,11 @@ export const defaultProgramContent: ProgramBookContent = {
         authorName: 'Geonwoo Ahn',
         heading: 'Sensing the Shared Space Alongside What Has Now Vanished',
         paragraphs: [
-          'We believe that the theater must always remain a sanctuary that resists the relentless speed of contemporary life. In a modern society where everything is swiftly erased and replaced, we rush forward without even the breathing room to ask what we might be leaving behind. This performance began with the desire to gather onto the stage, like an intimate vessel, the voices of nameless places and forgotten souls swept away from the map by immense speed.',
-          'Bringing a theatrical performance to the stage is never merely about visualizing a printed script. It is an act of constructing collective memory, breathing together with the audience through the performer’s breath, the texture of the stage, the deep shadows, and shared silence. For this production, we consciously stripped away ornate decor and excessive spectacle to focus squarely on the honest language of the performer and the organic resonance of the text.',
-          'We hope that all of you visiting the theater today may momentarily set aside the clamor of everyday life. May this quiet hour shared in the dark auditorium gently knock on the door of memories long kept within your hearts, serving as a time of warm and genuine hospitality.'
+          'In every space, there are traces left by people from the past. These traces build up over a long period of time and eventually form the history of a place. There are many different ways to record and look into history. There are also histories that, inevitably, could not be recorded in written words.',
+          'Gestures are one example. A gesture recorded in writing is like a secret poem. It cannot fully reveal the complete form of the gesture, but rather, within this unclear quality, there are hidden contexts that remain beyond the written record. Through our research on Park Jong-cheol and the democratization movement of 1987, we traced the history of gestures that could be found in various written documents. The gestures were diverse in written records, just as they were in reality. Gestures of crying out, gestures of condemnation, gestures of silence, gestures of running away, gestures of throwing, gestures of hitting, gestures of atonement, gestures of repentance, gestures of questioning, gestures of falling, and countless other gestures. Among the many gestures that make up history, we decided to try to sense and experience history through the body as material and gesture as performance.',
+          'And there was a city in which all of these gestures moved and overflowed. As gestures of desire for democracy formed a new landscape of the city, citizens themselves came out into the streets and performed their gestures, crying out for justice in the middle of an era in which mouths were blocked and eyes were covered. The city willingly became a stage where gestures could unfold.',
+          'It is the same city, but the city of today comes to us in a different form from that time. The young people who went out into the streets have now become middle-aged bodies. Some bodies may have already passed away. Still, we know that the cries and tensions of that period continue to form part of the city. Now, as people from the past gradually move away with the flow of time, what kind of meaning can there be in trying to sense the context of the past through a young body? What can we encounter at that point of contact?',
+          'As in the city of that time, no one knows what will be found at the end of this performance, which is created together by the bodies of all performers existing in the same space. Because of this, the experience that each body goes through will also be different. As multiple performances emerge at the same time, we look forward to seeing how our bodies may come into contact with the contexts of the past.'
         ],
         closing: ''
       }
@@ -127,24 +131,30 @@ export const defaultProgramContent: ProgramBookContent = {
       fr: {
         authorTitle: '',
         authorName: 'Jang Min-young',
-        heading: 'Face au même espace aux côtés de présences désormais disparues',
+        heading: 'Mots de Dramaturgue',
         subheading: '',
         paragraphs: [
-          'Une ville n’est pas un simple ensemble d’édifices et d’infrastructures matérielles. C’est une strate temporelle colossale où se déposent les trajectoires, les blessures et les désirs des innombrables âmes qui l’ont arpentée. Tout en abordant la tragédie contemporaine de la perte des lieux, cette réflexion maintient un regard rigoureux qui refuse la complaisance nostalgique. L’espace de disparition devient ainsi le lieu paradoxal où s’énonce la vérité enfouie.',
-          'Le déploiement des archives et des temporalités dans cette œuvre relève d’une transmission vivante de la mémoire. Bien que les témoignages oraux et les fragments historiques paraissent discontinus, ils recèlent la texture intime de l’existence que la raison pure ne saurait saisir. Le texte capte la chaleur émotionnelle née de la friction entre effacement et remémoration, plaçant le spectateur devant une interrogation éthique : pour qui nous souvenons-nous ?',
-          'L’esthétique scénique éclaire ce qui persiste lorsque la matière vient à manquer. Les silences habités et la rigueur de la parole résonnent avec la mémoire intime de chaque spectateur. À l’instar d’un brin d’herbe fragile poussant entre les fissures des décombres, nous assistons à la possibilité inébranlable d’une solidarité qui survit à la disparition.'
+          'Ça bouge.',
+          'Toutes les choses qui existent réellement dans notre temps bougent, sans distinction de nature. Rien ne reste fixé pour toujours sur une seule coordonnée, sans aucun changement. Même au moment où j’écris ce texte, mes doigts bougent chacun d’une manière différente, une autre mélodie passe à chaque instant sur le moniteur secondaire au bord de mon champ de vision, et le paysage derrière la fenêtre tremble dans toutes les directions.',
+          'Ces mouvements ont une direction. Parfois, l’interprétation de cette direction change selon l’endroit où se trouve l’observateur. Pourtant, que nous en soyons conscients ou non, le corps et l’esprit en mouvement ont changé et sont arrivés jusqu’à aujourd’hui. En 2026, les gestes ordinaires des jeunes qui font défiler un écran, tiennent la poignée du métro et marchent d’un pas familier se superposent aux gestes brusques d’un jeune homme arrêté et emmené un jour de 1987. Ils forment ainsi une continuité ironique de Cross-sectional Slicing. Le 14 janvier 1987, l’eau mouvante de la mer de Busan, où Park Jong-cheol est né et a grandi, et l’eau stagnante de la salle d’interrogatoire de Namyeong-dong se sont superposées, dans les quatre dimensions, comme une seule coupe. Ses gestes se sont arrêtés. Il n’a pas pu ressortir avec le même mouvement, et pour lui, il n’y a plus eu de temps après cela.',
+          '일기일회(一期一会),',
+          'Cette célèbre phrase de la cérémonie du thé, « ce moment ne reviendra jamais », demande peut-être une réflexion fondamentale sur le temps, l’espace et le corps tels que nous les pensons. Cette œuvre présentée par le collectif Noroojumping relie deux espaces, Seoul, capitale de la République de Corée, et Busan, ville natale de Park Jong-cheol, à travers le « geste ». Le geste, comme mouvement difficile à définir, présente cet espace vide à ceux qui sont à la fois spectateurs et observateurs, et ouvre ainsi une possibilité d’interprétation. La performance apparaîtra sur la base d’un instant, comme une seule respiration, puis elle passera dans le passé. Mais votre propre corps, qui témoigne de ce mouvement, se trouve lui aussi sur la coordonnée du présent. Au moment où le souffle du performeur rencontre l’inspiration du spectateur, cette mémoire sera rejouée dans le corps et posera une question.',
+          'En 2026, vers où allons-nous, nous-mêmes et notre société ? Le présent qui semble séparé de 1987 est en réalité un temps qui n’a jamais cessé, accompagné sans interruption par les gestes humains. Ainsi, se souvenir de l’histoire et commémorer ne signifie pas seulement faire un calcul dans la tête, mais former une mémoire à travers le corps qui respire et bouge ici et maintenant. Les différentes performances présentées ici reçoivent aujourd’hui, par des corps vivants présents ici, l’année 1987 qui s’était arrêtée. Lorsque nous sentirons de nouveau ce temps immobile, nos corps pourront enfin commencer à se diriger vers la prochaine coordonnée.'
         ],
         closing: ''
       },
       en: {
         authorTitle: '',
         authorName: 'Minyoung Jang',
-        heading: 'Facing the Shared Space Alongside Vanished Presences',
+        heading: 'Words of Dramaturgue',
         subheading: '',
         paragraphs: [
-          'A city is never merely a physical accumulation of architectural structures. It is a vast stratum of time where the trajectories, wounds, and longings of countless lives have settled in layers. While addressing the universal tragedy of urban dispossession, this work maintains a disciplined gaze that refuses to retreat into mere nostalgia. Sites on the brink of demolition become paradoxically liberating arenas where repressed truths find utterance.',
-          'The trajectories of time and archival material in this work perform the essential transmission of generational memory. Though oral testimonies and documents are fragmented, they preserve the visceral grain of lived life that rational calculation fails to capture. The text illuminates the emotional friction where erasure and remembrance collide, prompting audience members to confront an urgent ethical question: for whom do we remember?',
-          'The poetics of time unfolding on stage illuminate enduring values that surface precisely in the absence of tangible matter. The profound silences and deliberate prose will resonate with the personal memories stored within each spectator. Like fragile blades of grass emerging between crumbling bricks, we witness the resilient possibility of solidarity surviving through and beyond disappearance.'
+          'It moves.',
+          'Everything that exists and lives within our time moves, regardless of its kind. This is because nothing stays fixed forever at one coordinate without change. Even at the moment of writing this text, each finger moves in a different way, a different melody flows every moment from the secondary monitor at the edge of my vision, and the scenery outside the window shakes in many directions.',
+          'These movements have directions. Sometimes, the interpretation of that direction changes depending on where the observer stands. But whether we are conscious of it or not, the moving body and mind have changed and arrived at today. In 2026, the ordinary gestures of young people who scroll screens, hold subway handles, and walk along familiar streets overlap with the rough gestures of a young man who was arrested and taken away on one day in 1987. Together, they form an ironic continuity of Cross-sectional Slicing. On January 14, 1987, the flowing water of the sea in Busan, where Park Jong-cheol was born and raised, and the still water in the interrogation room of Namyeong-dong were layered into one section in four-dimensional space. His gestures stopped. He could not walk out again with the same movement, and no more time existed for him.',
+          '일기일회(一期一会),',
+          'This famous expression from the tea ceremony, “this moment will never return,” may perhaps ask us to think fundamentally about time, space, and the body. This work presented by Collective NorooJumping connects two spaces, Seoul, the capital of the Republic of Korea, and Busan, the hometown of Park Jong-cheol, through “gesture.” Gesture, as an unclear kind of movement, presents its empty space to those who are both audience and observer, and opens a gap for interpretation. The performance will happen based on a moment, like a single breath, and then pass into the past. But your own body, which witnesses this movement, is also standing on the coordinate of the present. At the moment when the breath of the performer meets the audience’s inhalation, that memory will be played again inside the body and will raise a question.',
+          'In 2026, where are we moving, and where is our society moving? The present, which seems to exist as if it were separated from 1987, is in fact a time that has continued without a single break together with the continuous gestures of human beings. Therefore, remembering history and commemorating it do not mean only a calculation inside the mind. They mean forming memory through the body that is breathing and moving here and now. The different performances in this place receive the year 1987, which once stopped, through living bodies of the present, here and now. When we sense that stopped time again, our bodies may finally begin to move toward the next coordinate.'
         ],
         closing: ''
       }
