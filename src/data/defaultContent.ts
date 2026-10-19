@@ -33,7 +33,7 @@ export const defaultProgramContent: ProgramBookContent = {
     firstGroupLabel: '서울(26일 30일*) 부산(11일 12일 13일*)',
     firstGroupTime: '개막시간: 19시(서울) 15시(부산)',
     secondGroupLabel: '서울(27일 28일 29일)',
-    secondGroupTime: '개막시간: 13시부터(예약제)',
+    secondGroupTime: '개막시간: 13시부터(예약 바로가기)',
     noticeBox: '퍼포먼스 2는 모두가 함께 만드는 순서입니다. 퍼포먼스의 원활한 진행을 위해 관객 여러분께서는 뜨개실을 지참해 주세요. 뜨개실은 대바늘용으로, 어떤 색이든 상관 없이 길면 길수록 좋습니다.',
     items: [
       {

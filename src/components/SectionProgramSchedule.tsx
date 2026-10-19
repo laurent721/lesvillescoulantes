@@ -1,5 +1,9 @@
 import React from 'react';
 import { ProgramSchedule, ProgramScheduleItem } from '../types/content';
+import { ExternalLink } from 'lucide-react';
+
+const RESERVATION_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSd9VpeO6wbViSfXhaesFTfxp6i1n_mP6pn74_GTVzNfZtygZQ/viewform?usp=send_form';
 
 interface SectionProgramScheduleProps {
   schedule?: ProgramSchedule;
@@ -35,6 +39,35 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
       }
       return part;
     });
+  };
+
+  // Helper to render time labels and buttonize '(예약 바로가기)'
+  const renderTimeLabel = (timeText?: string) => {
+    if (!timeText) return null;
+    if (timeText.includes('예약 바로가기')) {
+      const match = timeText.match(/^(.*?)(?:\(?예약\s*바로가기\)?)?$/);
+      const rawPrefix = match ? match[1] : timeText.replace(/\(?예약\s*바로가기\)?/, '');
+      const prefix = rawPrefix.replace(/[()]/g, '').trim();
+      return (
+        <span className="text-xs font-semibold text-stone-600 tracking-wider inline-flex items-center justify-center flex-wrap gap-2">
+          {prefix && <span>{prefix}</span>}
+          <a
+            href={RESERVATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] sm:text-xs font-bold text-stone-900 bg-stone-200/90 hover:bg-stone-300 border border-stone-350 rounded transition-all shadow-2xs hover:shadow-xs active:scale-95"
+          >
+            <span>예약 바로가기</span>
+            <ExternalLink className="w-3 h-3 text-stone-700" />
+          </a>
+        </span>
+      );
+    }
+    return (
+      <span className="text-xs font-semibold text-stone-600 tracking-wider">
+        {timeText}
+      </span>
+    );
   };
 
   const renderItem = (item: ProgramScheduleItem, idx: number) => (
@@ -86,9 +119,7 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
         {/* 1. First Group Opening Time */}
         {firstGroupTime && (
           <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
-            <span className="text-xs font-semibold text-stone-600 tracking-wider">
-              {firstGroupTime}
-            </span>
+            {renderTimeLabel(firstGroupTime)}
           </div>
         )}
 
@@ -107,9 +138,7 @@ export const SectionProgramSchedule: React.FC<SectionProgramScheduleProps> = ({ 
                     </div>
                     {secondGroupTime && (
                       <div className="py-2.5 sm:py-3 text-center border-b border-stone-300/70">
-                        <span className="text-xs font-semibold text-stone-600 tracking-wider">
-                          {secondGroupTime}
-                        </span>
+                        {renderTimeLabel(secondGroupTime)}
                       </div>
                     )}
                   </>

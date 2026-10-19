@@ -334,7 +334,12 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           .join('')}
       </div>
 
-      <h3 style="font-size: 1.45rem; font-weight: 700; margin: 3.5rem 0 1.25rem;">콜렉티브 노루점핑</h3>
+      <div style="display: flex; align-items: center; gap: 0.65rem; margin: 3.5rem 0 1.25rem;">
+        <h3 style="font-size: 1.45rem; font-weight: 700; margin: 0; color: #FFFFFF;">콜렉티브 노루점핑</h3>
+        <a href="https://www.instagram.com/noroojumping/" target="_blank" rel="noopener noreferrer" aria-label="콜렉티브 노루점핑 인스타그램 바로가기" title="인스타그램 @noroojumping 바로가기" style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 6px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #A7F3D0; text-decoration: none;">
+          <svg style="width: 17px; height: 17px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+      </div>
       <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
         ${Array.isArray(meta.collectiveIntro)
           ? meta.collectiveIntro.map(p => `<p class="justified-text">${p}</p>`).join('')
@@ -371,8 +376,15 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           </div>
           ${schedule.secondGroupTime ? `
           <!-- Second Group Opening Time -->
-          <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle);">
-            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.secondGroupTime}</span>
+          <div style="padding: 0.65rem 0; text-align: center; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap;">
+            ${schedule.secondGroupTime.includes('예약 바로가기') ? `
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.secondGroupTime.replace(/\(?예약\s*바로가기\)?/, '').replace(/[()]/g, '').trim()}</span>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9VpeO6wbViSfXhaesFTfxp6i1n_mP6pn74_GTVzNfZtygZQ/viewform?usp=send_form" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; font-weight: 700; color: #1C1917; background: #E7E5E4; padding: 0.15rem 0.55rem; border-radius: 4px; text-decoration: none; border: 1px solid rgba(0,0,0,0.15);">
+                예약 바로가기 ↗
+              </a>
+            ` : `
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em;">${schedule.secondGroupTime}</span>
+            `}
           </div>
           ` : ''}
           ` : ''}

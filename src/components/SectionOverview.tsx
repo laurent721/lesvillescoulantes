@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductionMeta } from '../types/content';
+import { Instagram } from 'lucide-react';
 
 interface SectionOverviewProps {
   meta: ProductionMeta;
@@ -133,9 +134,21 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
 
         {/* Collective Norujumping (문단의 짧은 줄글 형식 텍스트) */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 tracking-tight">
-            콜렉티브 노루점핑
-          </h2>
+          <div className="flex items-center gap-2.5 mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              콜렉티브 노루점핑
+            </h2>
+            <a
+              href="https://www.instagram.com/noroojumping/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="콜렉티브 노루점핑 인스타그램 바로가기"
+              title="인스타그램 @noroojumping 바로가기"
+              className="inline-flex items-center justify-center p-1.5 text-emerald-200 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-md transition-all hover:scale-105 active:scale-95 shadow-2xs"
+            >
+              <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a>
+          </div>
           <div className="border-t border-white/20 pt-5 space-y-4">
             {typeof meta.collectiveIntro === 'string' && (
               <p className={`text-stone-100 text-justified tracking-[-0.015em] ${bodyTextClass}`}>
