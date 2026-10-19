@@ -18,7 +18,7 @@ export const defaultProgramContent: ProgramBookContent = {
       { role: '퍼포머', names: '현림' },
       { role: '촬영', names: '성승정' },
       { role: '하우스매니저(부산)', names: '이지영(민주공원)' },
-      { role: '자료협조', names: '박지원(민주주의기록관)' },
+      { role: '자료협조', names: '박지원(부산민주항쟁기념사업회)' },
       { role: '직물', names: '일광상회(부산진시장)' },
       { role: '의상', names: '또또패션(부산진시장)' },
       { role: '사무협력', names: '채명훈(박종철기념사업회)' },
