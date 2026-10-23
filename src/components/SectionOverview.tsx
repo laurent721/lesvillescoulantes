@@ -68,6 +68,14 @@ export const SectionOverview: React.FC<SectionOverviewProps> = ({ meta, fontSize
               {renderWithLineBreaks(meta.venue)}
             </p>
           </div>
+          {meta.mainPerformance && (
+            <div>
+              <span className="text-xs font-semibold text-emerald-200/80 block mb-1">본공연</span>
+              <p className="font-semibold text-base sm:text-lg text-white leading-relaxed">
+                {renderWithLineBreaks(meta.mainPerformance)}
+              </p>
+            </div>
+          )}
           <div>
             <span className="text-xs font-semibold text-emerald-200/80 block mb-1">
               {meta.intermission ? '소요 시간 및 인터미션' : '소요 시간'}

@@ -194,6 +194,21 @@ export const ContentEditorModal: React.FC<ContentEditorModalProps> = ({
                   />
                 </div>
                 <div>
+                  <label className="block text-xs font-bold text-stone-700 mb-1">본공연</label>
+                  <input
+                    type="text"
+                    value={formData.meta.mainPerformance || ''}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        meta: { ...formData.meta, mainPerformance: e.target.value }
+                      })
+                    }
+                    className="w-full px-3 py-2 bg-white border border-stone-300 rounded focus:border-stone-700 outline-none"
+                    placeholder="서울: 10월 30일 오후 7시 <br> 부산: 11월 13일 오후 3시"
+                  />
+                </div>
+                <div>
                   <label className="block text-xs font-bold text-stone-700 mb-1">러닝 타임</label>
                   <input
                     type="text"

@@ -300,6 +300,10 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
           <div class="meta-item-label">공연 장소</div>
           <div class="meta-item-value">${meta.venue}</div>
         </div>
+        ${meta.mainPerformance ? `<div>
+          <div class="meta-item-label">본공연</div>
+          <div class="meta-item-value">${meta.mainPerformance}</div>
+        </div>` : ''}
         <div>
           <div class="meta-item-label">${meta.intermission ? '소요 시간 및 인터미션' : '소요 시간'}</div>
           <div class="meta-item-value">${meta.runningTime}${meta.intermission ? ` · ${meta.intermission}` : ''}</div>

@@ -6,6 +6,7 @@ export const defaultProgramContent: ProgramBookContent = {
     subtitle: '콜렉티브 노루점핑 아카이브 퍼포먼스 2',
     dates: '서울 2026년 10월 26일(월) - 30일(금) <br> 부산 2026년 11월 11일(수) - 13일(금)',
     venue: '서울대학교 14동 인문소극장 <br> 부산 민주공원 민주항쟁기념관',
+    mainPerformance: '서울: 10월 30일 오후 7시 <br> 부산: 11월 13일 오후 3시',
     runningTime: '약 120분',
     ticketPrice: '무료 관람',
 

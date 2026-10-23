@@ -4,6 +4,7 @@ export interface ProductionMeta {
   genre?: string;
   dates: string;
   venue: string;
+  mainPerformance?: string;
   runningTime: string;
   intermission?: string;
   ageRating?: string;
