@@ -22,7 +22,7 @@ export interface ProductionMeta {
   collectiveIntro?: string | string[];
 }
 
-export type LanguageCode = 'ko' | 'fr' | 'en';
+export type LanguageCode = 'ko' | 'fr' | 'en' | 'ja';
 
 export interface LocalizedNote {
   authorTitle?: string;
@@ -42,6 +42,7 @@ export interface ProducerNote {
   translations?: {
     fr?: LocalizedNote;
     en?: LocalizedNote;
+    ja?: LocalizedNote;
   };
 }
 
@@ -55,6 +56,7 @@ export interface DramaturgNote {
   translations?: {
     fr?: LocalizedNote;
     en?: LocalizedNote;
+    ja?: LocalizedNote;
   };
 }
 

@@ -37,6 +37,16 @@ export const SectionDramaturgNote: React.FC<SectionDramaturgNoteProps> = ({ note
         closing: note.translations.en.closing ?? note.closing
       };
     }
+    if (currentLang === 'ja' && note.translations?.ja) {
+      return {
+        heading: note.translations.ja.heading,
+        subheading: note.translations.ja.subheading ?? note.subheading,
+        authorTitle: note.translations.ja.authorTitle ?? note.authorTitle,
+        authorName: note.translations.ja.authorName ?? note.authorName,
+        paragraphs: note.translations.ja.paragraphs,
+        closing: note.translations.ja.closing ?? note.closing
+      };
+    }
     return {
       heading: note.heading,
       subheading: note.subheading,
@@ -50,7 +60,7 @@ export const SectionDramaturgNote: React.FC<SectionDramaturgNoteProps> = ({ note
   return (
     <section id="dramaturg" className="bg-[#EAECE7] text-stone-900 py-16 sm:py-24 px-5 sm:px-8 border-b border-stone-300/60">
       <div className="max-w-3xl mx-auto">
-        {/* Language conversion buttons: KR / FR / EN */}
+        {/* Language conversion buttons: KR / FR / EN / JP */}
         <div className="flex items-center gap-1.5 mb-6">
           <div className="bg-stone-200/90 p-1 rounded inline-flex gap-1 text-xs font-semibold text-stone-700 border border-stone-300/70">
             <button
@@ -85,6 +95,17 @@ export const SectionDramaturgNote: React.FC<SectionDramaturgNoteProps> = ({ note
               title="English (EN)"
             >
               EN
+            </button>
+            <button
+              onClick={() => setCurrentLang('ja')}
+              className={`px-3 py-1 rounded transition-colors ${
+                currentLang === 'ja'
+                  ? 'bg-stone-900 text-white font-bold shadow-xs'
+                  : 'text-stone-700 hover:text-stone-950 hover:bg-stone-300/60'
+              }`}
+              title="日本語 (JP)"
+            >
+              JP
             </button>
           </div>
         </div>

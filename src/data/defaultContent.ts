@@ -15,8 +15,9 @@ export const defaultProgramContent: ProgramBookContent = {
       { role: '드라마투르기 / 리서치', names: '장민영' },
       { role: '공간연출', names: '정수미' },
       { role: '기술감독', names: '김재성' },
-      { role: '건축리서치', names: '이수민' },
+      { role: '조명감독', names: '이로이' },
       { role: '퍼포머', names: '현림' },
+      { role: '건축리서치', names: '이수민' },
       { role: '촬영', names: '성승정' },
       { role: '하우스매니저(부산)', names: '이지영(민주공원)' },
       { role: '자료협조', names: '박지원(부산민주항쟁기념사업회)' },
@@ -111,6 +112,18 @@ export const defaultProgramContent: ProgramBookContent = {
           'As in the city of that time, no one knows what will be found at the end of this performance, which is created together by the bodies of all performers existing in the same space. Because of this, the experience that each body goes through will also be different. As multiple performances emerge at the same time, we look forward to seeing how our bodies may come into contact with the contexts of the past.'
         ],
         closing: ''
+      },
+      ja: {
+        authorTitle: '',
+        authorName: 'アン・ゴヌ',
+        heading: 'いまは消え去った存在たちと同じ空間を感じながら',
+        paragraphs: [
+          'あらゆる空間には、過去に存在したものたちが残した痕跡があります。そうした痕跡が長い時間をかけて積み重なり、空間の歴史をつくっていきます。歴史を記録し、それを読み返す方法はさまざまです。そして、文字ではどうしても記録されえない歴史も存在するものです。',
+          'そして、それらすべての身振りが満ち溢れていた都市があります。民主主義への切実な願いを宿した身振りが新たな都市の光景を形成していく過程で、市民たちは自ら街頭へと繰り出し、身振りを実践しながら、口を塞がれ目を覆われた時代のただ中で正義を叫びました。都市は惜しみなく、身振りが繰り広げられる舞台となったのです。',
+          '同じ都市でありながら、今日の都市は当時とは異なる姿で私たちに迫ってきます。街頭へと飛び出した青年たちは、いまや中年の身体となりました。すでにこの世を去った身体もあるでしょう。しかし、当時の叫びと緊張が今なお都市の一部を成していることを私たちは知っています。過去の存在たちが時の波に乗り少しずつ流れ去っていくいま、青年の身体で過去の文脈を感じ取ろうとする試みは、どのような意味をもたらし得るでしょうか。その接触点において、私たちは何に出会うことができるのでしょうか。',
+          '当時の都市のように、同じ空間に存在するすべてのパフォーマーの身体が共同してつくり上げていくこのパフォーマンスの果てに何があるのかは、誰にも分かりません。そして、それによってそれぞれの身体が体験するものも、また一人ひとり異なるはずです。複数のパフォーマンスが創発していくあいだ、私たちの身体が過去の文脈とどのように接触することができるのか、その可能性に期待したいと思います。'
+        ],
+        closing: ''
       }
     }
   },
@@ -156,6 +169,21 @@ export const defaultProgramContent: ProgramBookContent = {
           '일기일회(一期一会),',
           'This famous expression from the tea ceremony, “this moment will never return,” may perhaps ask us to think fundamentally about time, space, and the body. This work presented by Collective NorooJumping connects two spaces, Seoul, the capital of the Republic of Korea, and Busan, the hometown of Park Jong-cheol, through “gesture.” Gesture, as an unclear kind of movement, presents its empty space to those who are both audience and observer, and opens a gap for interpretation. The performance will happen based on a moment, like a single breath, and then pass into the past. But your own body, which witnesses this movement, is also standing on the coordinate of the present. At the moment when the breath of the performer meets the audience’s inhalation, that memory will be played again inside the body and will raise a question.',
           'In 2026, where are we moving, and where is our society moving? The present, which seems to exist as if it were separated from 1987, is in fact a time that has continued without a single break together with the continuous gestures of human beings. Therefore, remembering history and commemorating it do not mean only a calculation inside the mind. They mean forming memory through the body that is breathing and moving here and now. The different performances in this place receive the year 1987, which once stopped, through living bodies of the present, here and now. When we sense that stopped time again, our bodies may finally begin to move toward the next coordinate.'
+        ],
+        closing: ''
+      },
+      ja: {
+        authorTitle: '',
+        authorName: 'チャン・ミニョン',
+        heading: 'ドラマトゥルクの言葉',
+        subheading: '',
+        paragraphs: [
+          '動く。',
+          '私たちが生きるこの時間帯に実存するすべてのものは、その種類を問わず動いている。ひとつの座標に固定され、永遠不変であるものなど何ひとつ存在しないからだ。この文章を書き進めている瞬間にも、指先はそれぞれ異なる動きをし、視野の端にあるサブモニターでは刻一刻と異なる旋律が流れ、窓の外の風景は四方へと揺らめいている。',
+          'こうした動きには方向がある。時に観察者がどこに身を置くかによって、その方向の解釈が異なってくることもある。しかし意識していようといまいと、動く身体と精神は変化を重ね、今日へとたどり着いた。2026年の今日、画面をスクロールし、地下鉄の吊り革を握り、慣れた足取りで歩く青年たちの日常的な身振りは、1987年のある日、拘束され連行されていった青年の荒々しい身振りと重なり合い、断面スライシング（Cross-sectional Slicing）のアイロニカルな連続を成す。1987年1月14日、朴鍾哲（パク・ジョンチョル）烈士が生を受け育った釜山の海の流動する水と、南営洞（ナミョンドン）の取調室に淀んだ水は、4次元の時空の上でひとつの断面として重ね合わされた。彼の身振りは止まり、同じ動きで歩み出ることはできず、それ以上の時間は存在しなくなった。',
+          '一期一会（いちごいちえ）、',
+          '「いまこの瞬間は二度と戻らない」という茶道のこの名言は、おそらく私たちが思い描く時間と空間、そして身体に対する根源的な省察を求めているのかもしれない。コレクティブ・ノールージャンピングがお届けする今回の試みは、大韓民国の首都であるソウルと、朴鍾哲烈士の故郷である釜山という二つの空間を「身振り」を通じて結び合わせる。身振りという不分明な動きは、観客であり観察者である方々にその空白を提示し、解釈の隙間を押し広げる。パフォーマンスは一息の呼吸のように瞬間に基づいて生起し、過去へと過ぎ去っていくだろう。しかし、この動きを目撃するあなた自身の身体もまた、現在という座標の上に共に立っている。パフォーマーの呼吸と観客の吸い込む息が交わるこの瞬間、その記憶は身体の中で再び再生され、問いを投げかけるはずだ。',
+          '2026年の私たち、そして私たちの社会はどこへ向かって動いているのだろうか。1987年から断絶されているかのように存在する現在は、実のところ人間の絶え間ない身振りと、一瞬たりとも途切れることなく続いてきた時間である。したがって、歴史を記憶すること、追悼することは、単なる頭の中の計算ではなく、いまこの場で呼吸し動いている身体を通じた記憶の形成を意味する。ここでの様々なパフォーマンスは、かつて立ち止まってしまった1987年を、いま、ここに生きる身体で受け止める。静止した時間を再び感じ取るとき、私たちの身体は初めて次の座標へと向かって動き始めるだろう。'
         ],
         closing: ''
       }

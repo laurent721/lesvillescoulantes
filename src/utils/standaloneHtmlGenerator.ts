@@ -471,11 +471,12 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
   <!-- 2. 제작자의 말 -->
   <section id="producer">
     <div class="container">
-      <!-- Language switcher: KR / FR / EN -->
+      <!-- Language switcher: KR / FR / EN / JP -->
       <div class="lang-switch-box">
         <button class="lang-btn active" onclick="switchLang('producer', 'ko', this)">KR</button>
         <button class="lang-btn" onclick="switchLang('producer', 'fr', this)">FR</button>
         <button class="lang-btn" onclick="switchLang('producer', 'en', this)">EN</button>
+        <button class="lang-btn" onclick="switchLang('producer', 'ja', this)">JP</button>
       </div>
 
       <!-- KO Content -->
@@ -507,17 +508,28 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
         ${(producer.translations?.en?.paragraphs || producer.paragraphs).map((p) => `<p class="justified-text">${p}</p>`).join('')}
         ${producer.translations?.en?.closing ? `<div style="text-align: right; margin-top: 2.5rem; font-weight: 600; font-size: 1.05rem; color: var(--text-muted);">${producer.translations.en.closing}</div>` : ''}
       </div>
+
+      <!-- JP Content -->
+      <div id="producer-ja" class="lang-content" style="display: none;">
+        <h2 class="section-title">${producer.translations?.ja?.heading || producer.heading}</h2>
+        <div style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 2.25rem;">
+          <strong>${producer.translations?.ja?.authorName || producer.authorName}</strong>
+        </div>
+        ${(producer.translations?.ja?.paragraphs || producer.paragraphs).map((p) => `<p class="justified-text">${p}</p>`).join('')}
+        ${producer.translations?.ja?.closing ? `<div style="text-align: right; margin-top: 2.5rem; font-weight: 600; font-size: 1.05rem; color: var(--text-muted);">${producer.translations.ja.closing}</div>` : ''}
+      </div>
     </div>
   </section>
 
   <!-- 3. 드라마투르기의 말 -->
   <section id="dramaturg">
     <div class="container">
-      <!-- Language switcher: KR / FR / EN -->
+      <!-- Language switcher: KR / FR / EN / JP -->
       <div class="lang-switch-box">
         <button class="lang-btn active" onclick="switchLang('dramaturg', 'ko', this)">KR</button>
         <button class="lang-btn" onclick="switchLang('dramaturg', 'fr', this)">FR</button>
         <button class="lang-btn" onclick="switchLang('dramaturg', 'en', this)">EN</button>
+        <button class="lang-btn" onclick="switchLang('dramaturg', 'ja', this)">JP</button>
       </div>
 
       <!-- KO Content -->
@@ -549,6 +561,17 @@ export function generateStandaloneHtml(content: ProgramBookContent): string {
         </div>
         ${(dramaturg.translations?.en?.paragraphs || dramaturg.paragraphs).map((p) => `<p class="justified-text">${p}</p>`).join('')}
         ${dramaturg.translations?.en?.closing ? `<div style="text-align: right; margin-top: 2.5rem; font-weight: 600; font-size: 1.05rem; color: var(--text-muted);">${dramaturg.translations.en.closing}</div>` : ''}
+      </div>
+
+      <!-- JP Content -->
+      <div id="dramaturg-ja" class="lang-content" style="display: none;">
+        <h2 class="section-title">${dramaturg.translations?.ja?.heading || dramaturg.heading}</h2>
+        ${dramaturg.translations?.ja?.subheading ? `<p style="font-size: 1.2rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1rem;">${dramaturg.translations.ja.subheading}</p>` : ''}
+        <div style="font-size: 1.05rem; font-weight: 600; color: var(--text-muted); margin-bottom: 2.5rem;">
+          <strong>${dramaturg.translations?.ja?.authorName || dramaturg.authorName}</strong>
+        </div>
+        ${(dramaturg.translations?.ja?.paragraphs || dramaturg.paragraphs).map((p) => `<p class="justified-text">${p}</p>`).join('')}
+        ${dramaturg.translations?.ja?.closing ? `<div style="text-align: right; margin-top: 2.5rem; font-weight: 600; font-size: 1.05rem; color: var(--text-muted);">${dramaturg.translations.ja.closing}</div>` : ''}
       </div>
     </div>
   </section>
