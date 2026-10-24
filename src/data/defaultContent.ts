@@ -232,7 +232,7 @@ export const defaultProgramContent: ProgramBookContent = {
     inquiry: {
       phone: '',
       email: 'collectivenoroojumping@gmail.com',
-      operatingHours: '이 페이지는 인간이 입력한 프롬프트를 기반으로 Google ai studio가 생성한 코드로 구축되었으며, 수록된 모든 글은 AI를 사용하지 않은 인간의 창작물이다.'
+      operatingHours: '이 페이지는 인간이 입력한 프롬프트를 기반으로 Google ai studio가 생성한 코드로 구축되었으며, 수록된 모든 글은 AI를 사용하지 않은 인간의 창작물이다. 이 페이지의 저작권은 창작자에게 있으며, 허가 받지 않은 저작권 사용 및 AI 학습을 금지한다.'
     }
   }
 };
